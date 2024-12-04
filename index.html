@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Rental Website</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-attachment: fixed;
+        }
+
+        /* Responsive Topnav */
+        ul.topnav {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+            ul.topnav li {
+                float: left;
+            }
+
+                ul.topnav li a {
+                    display: block;
+                    color: white;
+                    text-align: center;
+                    padding: 14px 16px;
+                    text-decoration: none;
+                }
+
+                    ul.topnav li a:hover:not(.active) {
+                        background-color: #111;
+                    }
+
+                    ul.topnav li a.active {
+                        background-color: #04AA6D;
+                    }
+
+                ul.topnav li.right {
+                    float: right;
+                }
+
+        @media screen and (max-width: 600px) {
+            ul.topnav li.right,
+            ul.topnav li {
+                float: none;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: url('img/istockphoto-918555756-1024x1024.jpg');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding-top: 50px;
+            color: white;
+        }
+
+        .hero-content h1 {
+            margin: 0;
+            font-size: 3rem;
+        }
+
+        .hero-content p {
+            margin: 10px 0 0;
+            font-size: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        /* Music Buttons */
+        .music-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #04AA6D;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+            .music-btn:hover {
+                background-color: #028a5e;
+            }
+
+            .music-btn.stop {
+                background-color: #f44336;
+            }
+
+                .music-btn.stop:hover {
+                    background-color: #d32f2f;
+                }
+    </style>
+</head>
+<body>
+
+    <!-- Responsive Topnav -->
+    <ul class="topnav">
+        <li><a class="active" href="#home">Home</a></li>
+        <li><a href="HtmlPage5.html">Services</a></li>
+        <li><a href="HtmlPage5.html" class="fas fa-sign-in-alt icon">Log in</a></li>
+        <li><a href="HtmlPage6.html">About</a></li>
+    </ul>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 style="color:black">Welcome to Car Rental</h1>
+            <p style="color:black">Find the best cars at affordable prices!</p>
+            <button class="music-btn" onclick="playMusic()">Play Music</button>
+            <button class="music-btn stop" onclick="stopMusic()">Stop Music</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <p>&copy; 2024 Car Rental. All Rights Reserved.</p>
+    </footer>
+
+    <!-- YouTube Embed Script -->
+    <iframe id="background-music"
+            src="https://www.youtube.com/embed/qv5aFu41XSs?enablejsapi=1&rel=0&loop=1&playlist=qv5aFu41XSs"
+            frameborder="0"
+            allow="autoplay"
+            style="display:none;"></iframe>
+
+    <script>
+        let player;
+
+        // Load YouTube IFrame API
+        function onYouTubeIframeAPIReady() {
+            const iframe = document.getElementById('background-music');
+            player = new YT.Player(iframe, {
+                events: {
+                    'onReady': (event) => {
+                        console.log('YouTube Player is ready.');
+                    }
+                }
+            });
+        }
+
+        // Function to play the music
+        function playMusic() {
+            if (player) {
+                player.playVideo();
+            }
+        }
+
+        // Function to stop the music
+        function stopMusic() {
+            if (player) {
+                player.pauseVideo();
+            }
+        }
+    </script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+
+</body>
+</html>
